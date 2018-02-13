@@ -1,0 +1,53 @@
+Name:                hoauth2-example-obsolete
+Version:             0.0.1
+
+Synopsis:            Haskell OAuth2 authentication client samples
+
+Description: Haskell OAuth2 authentication client. Tested with the following services:
+             .
+             * Google: <https://developers.google.com/accounts/docs/OAuth2WebServer>
+             .
+             * Github: <http://developer.github.com/v3/oauth/>
+             .
+             * Facebook: <http://developers.facebook.com/docs/facebook-login/>
+             .
+             * Fitbit: <http://dev.fitbit.com/docs/oauth2/>
+             .
+             * StackExchange: <https://api.stackexchange.com/docs/authentication>
+             .
+             * DropBox: <https://www.dropbox.com/developers/reference/oauth-guide>
+             .
+             * Weibo: <http://open.weibo.com/wiki/Oauth2>
+             .
+             * Douban: <http://developers.douban.com/wiki/?title=oauth2>
+
+Homepage:            https://github.com/freizl/hoauth2-example-obsolete
+License:             BSD3
+License-file:        LICENSE
+Author:              Haisheng Wu
+Maintainer:          Haisheng Wu <freizl@gmail.com>
+Copyright:           Haisheng Wu
+Category:            Network
+Build-type:          Simple
+stability:           Beta
+Cabal-version:       >=1.10
+
+Executable test-stackexchange
+  main-is:             StackExchange/test.hs
+  other-modules:       Keys
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+  build-depends:       base              >= 4.5    && < 5
+                       , http-types
+                       , http-conduit
+                       , text
+                       , bytestring
+                       , uri-bytestring
+                       , aeson
+                       , hoauth2
+
+  if impl(ghc >= 6.12.0)
+      ghc-options: -Wall -fwarn-tabs -funbox-strict-fields
+                   -fno-warn-unused-do-bind
+  else
+      ghc-options: -Wall -fwarn-tabs -funbox-strict-fields
